@@ -56,4 +56,15 @@
 
 ## Deleting
 
-*TODO* how do we do this?
+*TODO* how do we do this?  Ideas:
+- Reference-count the chunks used per-archive, so when you remove an archive,
+  you decrement the reference count, removed at 0
+
+
+## Thoughts
+
+- Need to make sure that we don't have too many archives, or restoring can
+  involve reading too many files.
+- Reference count per-file, or what?
+- Should we make the concept of an 'archive' a higher-level thing, so the user
+  can remove old archives at a time?  How does this interact with refcounting?
